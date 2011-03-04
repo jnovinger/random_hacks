@@ -38,6 +38,7 @@ $password = 'password';                                     // fill in with your
 
 /* local settings */
 $mac = '192.168.1.xxx';                                     // fill in IP address of the remote Mac to run 'say' on
+                                                            // leave blank to run on the local machine
 $mac_user = 'user';                                         // fill in username on the remote Mac
 $phone = '7105551212';                                      // fill in phone number text sent from
 
@@ -55,7 +56,11 @@ if($lines) {
     $commands = array();
     foreach ($lines as $line) {
         $body = strtolower(rtrim(imap_fetchbody($inbox, $line, 1)));
-        $commands[] = 'ssh ' . $mac_user . '@' . $mac . ' "' . $body . '"';
+        if ($mac === '') {
+            $commands[] = $body;
+        } else {
+            $commands[] = 'ssh ' . $mac_user . '@' . $mac . ' "' . $body . '"';
+        }
     }
 }
 
