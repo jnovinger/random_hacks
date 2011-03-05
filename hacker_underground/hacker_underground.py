@@ -10,6 +10,7 @@ p = re.compile('[a-z]+', re.IGNORECASE)
 file = open('puzzle.txt')
 prime_candidates = []
 
+# Chuck letters and grab uniques
 while 1:
     line = file.readline()
     if not line:
@@ -24,8 +25,8 @@ while 1:
         else:
             prev_line = line
     break
-   
-primes = []      
+
+# find the prime number among the uniques   
 for candidate in prime_candidates:
     # rough cut off
     limit = int(sqrt(float(candidate))) + 1
