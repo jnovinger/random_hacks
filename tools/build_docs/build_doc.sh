@@ -13,17 +13,6 @@ ACTION=$1
 FILE=$2
 FILE_BASE=${FILE%.*}
 
-#echo $MARKDOWN
-#echo $HTML2PS
-#echo $PS2PDF
-#echo $ACTION
-#echo $FILE
-#echo $FILE_BASE
-
-# short circuit
-#MARKDOWN=`which asdasdasd`
-#HTML2PS=`which asdasdasdasd`
-
 # test for dependencies
 if [ -z $MARKDOWN ] ; then
     DEPEND=false
@@ -52,5 +41,3 @@ if [ $DEPEND = true ] ; then
 else
     exit
 fi
-
-#markdown TCAREe-Spec.md | html2ps -f html2ps.conf --toc h | ps2pdf - TCAREe.pdf && evince TCAREe.pdf&
