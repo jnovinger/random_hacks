@@ -21,7 +21,6 @@ if __name__ == '__main__':
         mp.command('volume +1')
 
         base_timeout = 5
-        phrase = 'wake up!'
         volume = 1
 
         while True:
